@@ -1,2 +1,8 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+//
+//  File.swift
+//  NetBIOSClient
+//
+//  Created by yuki on 2025/03/10.
+//
+
+import Foundation
