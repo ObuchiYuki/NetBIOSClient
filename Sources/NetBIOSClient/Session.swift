@@ -8,14 +8,10 @@
 import Foundation
 import Network
 
-public enum NetBIOSError: Error {
-    case invalidData
-}
-
-final public class NetBIOSSession: Sendable {
+final public class Session: Sendable {
     public let connection: NWConnection
     
-    public init(_ host: String, port: NWEndpoint.Port = 137) {
+    public init(_ host: String, port: NWEndpoint.Port) {
         self.connection = NWConnection(host: NWEndpoint.Host(host), port: port, using: .udp)
     }
     
@@ -39,18 +35,31 @@ final public class NetBIOSSession: Sendable {
         }
     }
     
-    public func fetch() async throws -> NetBIOSResponse {
+    public func fetch() async throws -> Response {
         let response = try await fetchData()
-        return NetBIOSResponse(response: response)
+        return Response(response: response)
     }
     
     public func cancel() {
         self.connection.cancel()
     }
     
-    private func fetchData() async throws -> ResponseNetBIOSDTO {
+    private func fetchData() async throws -> ResponseDTO {
         try await withCheckedThrowingContinuation { continuation in
-            let request = RequestNetBIOSDTO()
+
+            self.connection.stateUpdateHandler = { state in
+                switch state {
+                case .cancelled:
+                    continuation.resume(throwing: NetBIOSError.invalidData)
+                case .failed(let error):
+                    continuation.resume(throwing: error)
+                case .waiting(let error):
+                    continuation.resume(throwing: error)
+                default: break
+                }
+            }
+            
+            let request = RequestDTO()
             let requestData = request.encoded()
             
             self.connection.send(content: requestData, completion: .contentProcessed({ error in
@@ -61,7 +70,9 @@ final public class NetBIOSSession: Sendable {
                 }
 
                 self.connection.receiveMessage { data, _, _, error in
+                    self.connection.stateUpdateHandler = {_ in }
                     self.connection.cancel()
+                    
                     if let error = error {
                         continuation.resume(throwing: error)
                         return
@@ -72,7 +83,7 @@ final public class NetBIOSSession: Sendable {
                     }
 
                     do {
-                        let response = try ResponseNetBIOSDTO(data: data)
+                        let response = try ResponseDTO(data: data)
                         continuation.resume(returning: response)
                     } catch {
                         continuation.resume(throwing: error)

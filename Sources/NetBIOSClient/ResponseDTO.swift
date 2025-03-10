@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ResponseNetBIOSDTO {
+struct ResponseDTO {
     struct Record {
         let name: String
         let suffix: UInt8

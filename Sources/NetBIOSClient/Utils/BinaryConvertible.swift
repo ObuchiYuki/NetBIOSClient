@@ -1,18 +1,36 @@
+//
+//  BinaryConvertible.swift
+//  NetBIOSClient
+//
+//  Created by yuki on 2025/03/10.
+//
+
 import Foundation
 
+extension Data {
+    init<T>(from value: T) {
+        var value = value
+        self = Swift.withUnsafeBytes(of: &value) { Data($0) }
+    }
+    
+    func to<T>(type: T.Type) -> T {
+        return self.withUnsafeBytes { $0.load(as: T.self) }
+    }
+}
+
 protocol BinaryConvertible {
-  static func +(lhs: Data, rhs: Self) -> Data
-  static func +=(lhs: inout Data, rhs: Self)
+    static func + (lhs: Data, rhs: Self) -> Data
+    static func += (lhs: inout Data, rhs: Self)
 }
 
 extension BinaryConvertible {
-  static func +(lhs: Data, rhs: Self) -> Data {
-    lhs + Data(from: rhs)
-  }
-
-  static func +=(lhs: inout Data, rhs: Self) {
-    lhs = lhs + rhs
-  }
+    static func + (lhs: Data, rhs: Self) -> Data {
+        lhs + Data(from: rhs)
+    }
+    
+    static func += (lhs: inout Data, rhs: Self) {
+        lhs = lhs + rhs
+    }
 }
 
 extension UInt8: BinaryConvertible {}

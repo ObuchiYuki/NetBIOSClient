@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RequestNetBIOSDTO {
+struct RequestDTO {
     let transactionID: UInt16 = .random(in: 0..<UInt16.max)
     let flags: UInt16 = 0x0000
     let questions: UInt16 = 1

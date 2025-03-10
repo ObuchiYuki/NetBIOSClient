@@ -6,7 +6,7 @@
 //
 
 
-public struct NetBIOSResponse: Sendable {
+public struct Response: Sendable {
     public let records: [Record]
     public let macAddress: String
 
@@ -71,7 +71,7 @@ public struct NetBIOSResponse: Sendable {
         }
     }
     
-    init(response: ResponseNetBIOSDTO) {
+    init(response: ResponseDTO) {
         self.macAddress = response.macAddress
         self.records = response.nameRecords.map { record in
             Record(name: record.name, rawSuffix: record.suffix, rawFlags: record.flags)
@@ -79,7 +79,7 @@ public struct NetBIOSResponse: Sendable {
     }
 }
 
-extension NetBIOSResponse.Record.Suffix: CustomStringConvertible {
+extension Response.Record.Suffix: CustomStringConvertible {
     public var description: String {
         switch self {
         case .workstation: return "Workstation"
@@ -92,7 +92,7 @@ extension NetBIOSResponse.Record.Suffix: CustomStringConvertible {
     }
 }
 
-extension NetBIOSResponse.Record.Flags: CustomStringConvertible {
+extension Response.Record.Flags: CustomStringConvertible {
     public var description: String {
         var flags: [String] = []
         if self.contains(.groupName) { flags.append("Group Name") }
@@ -103,20 +103,20 @@ extension NetBIOSResponse.Record.Flags: CustomStringConvertible {
     }
 }
 
-extension NetBIOSResponse.Record.Flags.NodeType: CustomStringConvertible {
+extension Response.Record.Flags.NodeType: CustomStringConvertible {
     public var description: String {
         self.rawValue
     }
 }
 
-extension NetBIOSResponse.Record: CustomStringConvertible {
+extension Response.Record: CustomStringConvertible {
     public var description: String {
         "\(self.name) (type: \(self.suffix), flags: \(self.flags))"
     }
 }
 
-extension NetBIOSResponse: CustomStringConvertible {
+extension Response: CustomStringConvertible {
     public var description: String {
-        "NetBIOSResponse(records: \(self.records), macAddress: \(self.macAddress))"
+        "Response(records: \(self.records), macAddress: \(self.macAddress))"
     }
 }
