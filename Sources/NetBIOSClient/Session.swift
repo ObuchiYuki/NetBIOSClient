@@ -7,6 +7,7 @@
 
 import Foundation
 import Network
+import os
 
 final public class Session: Sendable {
     public let connection: NWConnection
@@ -17,14 +18,20 @@ final public class Session: Sendable {
     
     public func open() async throws {
         return try await withCheckedThrowingContinuation { continuation in
+            let hasResumed = OSAllocatedUnfairLock(initialState: false)
             self.connection.stateUpdateHandler = { state in
+                guard !hasResumed.withLock({ $0 }) else { return }
+                
                 switch state {
                 case .ready:
+                    hasResumed.withLock { $0 = true }
                     continuation.resume()
                 case .failed(let error):
+                    hasResumed.withLock { $0 = true }
                     self.connection.cancel()
                     continuation.resume(throwing: error)
                 case .waiting(let error):
+                    hasResumed.withLock { $0 = true }
                     self.connection.cancel()
                     continuation.resume(throwing: error)
                 default:
@@ -46,14 +53,20 @@ final public class Session: Sendable {
     
     private func fetchData() async throws -> ResponseDTO {
         try await withCheckedThrowingContinuation { continuation in
-
+            let hasResumed = OSAllocatedUnfairLock(initialState: false)
+            
             self.connection.stateUpdateHandler = { state in
+                guard !hasResumed.withLock({ $0 }) else { return }
+                
                 switch state {
                 case .cancelled:
+                    hasResumed.withLock { $0 = true }
                     continuation.resume(throwing: NetBIOSError.invalidData)
                 case .failed(let error):
+                    hasResumed.withLock { $0 = true }
                     continuation.resume(throwing: error)
                 case .waiting(let error):
+                    hasResumed.withLock { $0 = true }
                     continuation.resume(throwing: error)
                 default: break
                 }
@@ -63,6 +76,8 @@ final public class Session: Sendable {
             let requestData = request.encoded()
             
             self.connection.send(content: requestData, completion: .contentProcessed({ error in
+                guard !hasResumed.withLock({ $0 }) else { return }
+                
                 if let error = error {
                     self.connection.cancel()
                     continuation.resume(throwing: error)
@@ -70,6 +85,8 @@ final public class Session: Sendable {
                 }
 
                 self.connection.receiveMessage { data, _, _, error in
+                    hasResumed.withLock { $0 = true }
+                    
                     self.connection.stateUpdateHandler = {_ in }
                     self.connection.cancel()
                     
