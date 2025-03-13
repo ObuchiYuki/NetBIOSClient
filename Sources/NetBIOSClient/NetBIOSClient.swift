@@ -11,6 +11,7 @@ import Network
 public enum NetBIOSError: Error {
     case invalidData
     case timeout
+    case cancelled
 }
 
 final public class NetBIOSClient {
