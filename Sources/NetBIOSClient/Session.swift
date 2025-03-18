@@ -88,6 +88,7 @@ final public class Session: Sendable {
             }))
             
             self.connection.receiveMessage { data, _, _, error in
+                guard !hasResumed.withLock({ $0 }) else { return }
                 hasResumed.withLock { $0 = true }
                 
                 if self.connection.state != .cancelled {
