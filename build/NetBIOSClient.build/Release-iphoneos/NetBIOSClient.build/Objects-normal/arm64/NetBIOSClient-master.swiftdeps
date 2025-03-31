@@ -1,0 +1,12 @@
+version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
+options: "23e86aa0c759c953d5140b8ae372dcf64ccb925f878ada2617d90f9f765c941c"
+build_start_time: [1743399079, 816067000]
+build_end_time: [1743399083, 323674000]
+inputs:
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/NetBIOSClient.swift": [1741773106, 207655570]
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/RequestDTO.swift": [1741597096, 192560845]
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/Response.swift": [1741597118, 612756924]
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/ResponseDTO.swift": [1741597089, 735879526]
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/Session.swift": [1742217243, 170556910]
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/Utils/BinaryConvertible.swift": [1741595809, 562268387]
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/Utils/ByteReader.swift": [1741595730, 293166599]

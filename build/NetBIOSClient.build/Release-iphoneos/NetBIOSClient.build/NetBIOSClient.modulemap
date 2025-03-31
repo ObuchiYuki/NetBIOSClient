@@ -1,0 +1,4 @@
+module NetBIOSClient {
+header "NetBIOSClient-Swift.h"
+export *
+}

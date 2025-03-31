@@ -1,0 +1,45 @@
+{
+  "" : {
+    "const-values" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/NetBIOSClient-master.swiftconstvalues",
+    "dependencies" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/NetBIOSClient-master.d",
+    "diagnostics" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/NetBIOSClient-master.dia",
+    "emit-module-dependencies" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/NetBIOSClient-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/NetBIOSClient-master-emit-module.dia",
+    "swift-dependencies" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/NetBIOSClient-master.swiftdeps"
+  },
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/NetBIOSClient.swift" : {
+    "index-unit-output-path" : "/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/NetBIOSClient.o",
+    "llvm-bc" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/NetBIOSClient.bc",
+    "object" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/NetBIOSClient.o"
+  },
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/RequestDTO.swift" : {
+    "index-unit-output-path" : "/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/RequestDTO.o",
+    "llvm-bc" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/RequestDTO.bc",
+    "object" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/RequestDTO.o"
+  },
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/Response.swift" : {
+    "index-unit-output-path" : "/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/Response.o",
+    "llvm-bc" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/Response.bc",
+    "object" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/Response.o"
+  },
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/ResponseDTO.swift" : {
+    "index-unit-output-path" : "/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/ResponseDTO.o",
+    "llvm-bc" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/ResponseDTO.bc",
+    "object" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/ResponseDTO.o"
+  },
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/Session.swift" : {
+    "index-unit-output-path" : "/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/Session.o",
+    "llvm-bc" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/Session.bc",
+    "object" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/Session.o"
+  },
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/Utils/BinaryConvertible.swift" : {
+    "index-unit-output-path" : "/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/BinaryConvertible.o",
+    "llvm-bc" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/BinaryConvertible.bc",
+    "object" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/BinaryConvertible.o"
+  },
+  "/Users/yuki/Developer/Git/NetBIOSClient/Sources/NetBIOSClient/Utils/ByteReader.swift" : {
+    "index-unit-output-path" : "/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/ByteReader.o",
+    "llvm-bc" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/ByteReader.bc",
+    "object" : "/Users/yuki/Developer/Git/NetBIOSClient/build/NetBIOSClient.build/Release-iphoneos/NetBIOSClient.build/Objects-normal/arm64/ByteReader.o"
+  }
+}
